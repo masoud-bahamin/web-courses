@@ -1,6 +1,6 @@
 {
-  "homepage": "https://masoud-bahamin.github.io/web-courses",
-  "name": "webround",
+  "homepage": "https://masoud-bahamin.github.io/web-courses/",
+  "name": "web-courses",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
