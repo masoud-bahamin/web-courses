@@ -1,0 +1,16 @@
+
+@import url("https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.4.0/font/bootstrap-icons.min.css");
+.logo{font-size: 3rem;}
+
+.bg-soft-success{
+    background-color: #aafdaa45;
+
+}
+
+.bg-tertiary{
+    background-color: cadetblue;
+}
+
+.bg-surface-secondary{
+    background-color: rgb(233, 242, 246);
+}

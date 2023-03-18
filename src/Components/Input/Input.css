@@ -1,0 +1,9 @@
+.icon-input-chek{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    color: green;
+    margin-left: -30px;
+    z-index: 10;
+}

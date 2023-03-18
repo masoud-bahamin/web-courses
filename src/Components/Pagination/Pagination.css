@@ -1,0 +1,19 @@
+.container-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.index {
+  cursor: pointer;
+  display: inline;
+  margin-right: 30px;
+  padding: 7px;
+  user-select: none;
+  -moz-user-select: none;
+  font-weight: 500;
+}
+
+.active{
+    border-bottom: 1px solid black;
+}
