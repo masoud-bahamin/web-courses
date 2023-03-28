@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import Typewriter from 'typewriter-effect';
 import "./Carousel.css"
+import Image1 from "./../../img/carousel-1.jpg"
+import Image2 from "./../../img/carousel-2.jpg"
+import Image3 from "./../../img/carousel-3.jpg"
 
 export default function Landing() {
 
@@ -47,7 +50,7 @@ export default function Landing() {
         <div class="carousel-inner">
           <div class={showSlid === 0 ? "carousel-item active" : "carousel-item"}
             style={{ minHeight: 300 }}>
-            <img class="position-relative w-100" src="/img/carousel-1.jpg" style={{ minHeight: 300, objectFit: "cover" ,maxHeight: "95vh" }} />
+            <img class="position-relative w-100" src={Image1} style={{ minHeight: 300, objectFit: "cover" ,maxHeight: "95vh" }} />
             <div class="carousel-caption d-flex align-items-center justify-content-center">
               <div class="p-5" style={{ width: "100%", maxWidth: 900 }}>
                 <h5 class="text-white text-uppercase mb-md-3"> Best Online Courses</h5>
@@ -67,7 +70,7 @@ export default function Landing() {
           </div>
           <div class={showSlid === 1 ? "carousel-item active" : "carousel-item"}
             style={{ minHeight: 300 }}>
-            <img class="position-relative w-100" src="/img/carousel-2.jpg" style={{ minHeight: 300, objectFit: "cover" ,maxHeight: "95vh"}} />
+            <img class="position-relative w-100" src={Image2} style={{ minHeight: 300, objectFit: "cover" ,maxHeight: "95vh"}} />
             <div class="carousel-caption d-flex align-items-center justify-content-center">
               <div class="p-5" style={{ width: "100%", maxWidth: 900 }}>
                 <h5 class="text-white text-uppercase mb-md-3">Best Online Courses</h5>
@@ -89,7 +92,7 @@ export default function Landing() {
           </div>
           <div class={showSlid === 2 ? "carousel-item active" : "carousel-item"}
             style={{ minHeight: 300 }}>
-            <img class="position-relative w-100" src="/img/carousel-3.jpg" style={{ minHeight: 300, objectFit: "cover" ,maxHeight: "95vh"}} />
+            <img class="position-relative w-100" src={Image1} style={{ minHeight: 300, objectFit: "cover" ,maxHeight: "95vh"}} />
             <div class="carousel-caption d-flex align-items-center justify-content-center">
               <div class="p-5" style={{ width: "100%", maxWidth: 900 }}>
                 <h5 class="text-white text-uppercase mb-md-3">Best Online Courses</h5>
