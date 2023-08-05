@@ -17,12 +17,12 @@ export default function PopularCourses() {
   }, [])
 
   return (
-    <div class="container-fluid py-5">
-      <div class="container py-5">
-        <div class="text-center mb-5">
+    <div className="container-fluid py-5">
+      <div className="container py-5">
+        <div className="text-center mb-5">
           <SectionHeader title="Courses" subTitle="Our Popular Courses" />
         </div>
-        <div class="row">
+        <div className="row">
           {[...courses].reverse().slice(0,6).map(course => (
             <CourseBox key={course[0]} {...course[1]} />
           ))}

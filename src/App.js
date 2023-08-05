@@ -42,6 +42,10 @@ function App() {
 
   const Router = useRoutes(Routs)
 
+  useEffect(() => {
+    window.scrollTo(0 , 0)
+  } , [Router])
+
   return (
     <AuthContext.Provider value={{logOutUser , isLogin , userInfo , setIsLogin ,userID}}>
       {Router}

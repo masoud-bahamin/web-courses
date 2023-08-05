@@ -8,28 +8,27 @@ export default function SearchBox() {
     const [keyword, setKeyword] = useState("")
     const [searchResult , setSearchResult]= useState([])
 
-    const searchHandler = () => {
+    const searchHandler = (event) => {
         fetch(`${api}courses.json`)
            .then(res => res.json())
            .then(courses => {
-               let filter = (Object.entries(courses).filter(course => (course[1].title.toLowerCase()).includes(keyword.toLowerCase())))
+               let filter = (Object.entries(courses).filter(course => (course[1].title.toLowerCase()).includes(event.target.value.toLowerCase())))
                setSearchResult(filter)
            })
+           setKeyword(event.target.value)
     }
-
-    console.log(searchResult);
 
     return (
         <div className='col-md-8'>
-            <div class="input-group">
-                <input class="form-control form-control-lg " value={keyword}
-                    onChange={event => setKeyword(event.target.value)}
-                    onKeyUp={event => event.keyCode == 13 && searchHandler() }
+            <div className="input-group">
+                <input className="form-control form-control-lg " value={keyword}
+                    onChange={event => searchHandler(event)}
+                    // onKeyUp={event => event.keyCode == 13 && searchHandler() }
                 />
-                <div class="input-group-append">
+                <div className="input-group-append">
                     <span onClick={searchHandler}
-                    class="input-group-text bg-transparent text-primary">
-                        <i class="fa fa-search ml-2"></i>
+                    className="input-group-text bg-transparent text-primary">
+                        <i className="fa fa-search ml-2"></i>
                     </span>
                 </div>
             </div>

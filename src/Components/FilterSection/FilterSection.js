@@ -14,7 +14,7 @@ export default function FilterSection({display , handler , filterCourses}) {
     }
 
     return (
-        <div class="container-fluid mb-3">
+        <div className="container-fluid mb-3">
             
                 <div className='row border p-3 align-items-center'>
                     <div className='col-md-6'>

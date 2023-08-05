@@ -3,7 +3,7 @@ import AuthContext from '../../../Context/authContext'
 import "./Topbar.css"
 import { HiOutlineMail } from "react-icons/hi"
 import { useState } from 'react'
-
+import Img1 from "./../../../img/p.jpg"
 
 export default function Topbar() {
 
@@ -12,22 +12,22 @@ export default function Topbar() {
     const authContext = useContext(AuthContext)
 
     return (
-        <nav class="navbar navbar-default topbar-admin-panel">
-            <div class="container-fluid">
+        <nav className="navbar navbar-default topbar-admin-panel">
+            <div className="container-fluid">
                 <div>
-                    <img src='/img/p.jpg' className='image-topbar-admin-panel' />
+                    <img src={Img1} className='image-topbar-admin-panel' />
                     <a href="#">{authContext.userInfo ? authContext.userInfo.name : "user"}</a>
                 </div>
 
                 <div href="#" className='col-md-1 position-relative'>
                     <div onClick={()=> setShow(prev => !prev)}>
-                        <i class="fa fa-bell  " style={{ fontSize: 30, color: "gray", cursor: "pointer" }}> </i>
-                        <span class="position-absolute top-0 start-100 translate-middle badge text-white rounded-pill bg-danger">
+                        <i className="fa fa-bell  " style={{ fontSize: 30, color: "gray", cursor: "pointer" }}> </i>
+                        <span className="position-absolute top-0 start-100 translate-middle badge text-white rounded-pill bg-danger">
                             4
                         </span>
                     </div>
 
-                    <div class={`position-absolute top-100 topbar-notification-show ${show ? "show" : ""}`}>
+                    <div className={`position-absolute top-100 topbar-notification-show ${show ? "show" : ""}`}>
                         <div>
                             <ul style={{ marginLeft: "-10px" }}>
                                 <li className='topbar-notification-list'>

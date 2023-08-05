@@ -3,7 +3,7 @@ import SocialIcon from './SocialIcon'
 
 export default function SocialIcons() {
     return (
-        <div class="d-flex justify-content-start mt-4">
+        <div className="d-flex justify-content-start mt-4">
             <SocialIcon social="twitter" href="#"/>
             <SocialIcon social="facebook" href="#"/>
             <SocialIcon social="linkedin" href="#"/>

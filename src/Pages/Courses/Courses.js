@@ -7,32 +7,29 @@ import Pagination from '../../Components/Pagination/Pagination'
 import PopularCourses from '../../Components/PopularCourses/PopularCourses'
 import TopSubjects from '../../Components/TopSubjects/TopSubjects'
 import api from '../Api'
+import { useFetch } from '../../Hooks/useFetch'
+import Loader from '../../Components/Loader/Loader'
+import ErrorAlert from '../../Components/ErrorAlert/ErrorAlert'
 
 export default function Courses() {
 
   const [courses, setCourses] = useState([])
-
-  const getAllCourses = () => {
-    fetch(`${api}courses.json`)
-      .then(res => res.json())
-      .then(data => setCourses(Object.entries(data)))
-  }
-
-  useEffect(() => {
-    getAllCourses()
-  }, [])
+  const [data, loading, error] = useFetch("courses.json")
 
   return (
     <>
       <Header />
-
       <Breadcrump title="Home" titleHref="/" subTitle="Courses" />
-
       <TopSubjects title="Categorys" />
-      {/* <FilterSection /> */}
-      <Pagination onPage={3} courses={courses} />
-
-
+      {error ? (<ErrorAlert error={error} />) : (<>
+        {
+          loading ? (
+            <Loader />
+          ) : (
+            <Pagination onPage={3} courses={data} />
+          )
+        }
+      </>)}
 
       <Footer />
     </>

@@ -123,16 +123,16 @@ export default function Courses() {
 
     return (
         <>
-            <div class="container py-3">
-                <form class="well form-horizontal" action=" " method="post" id="contact_form">
+            <div className="container py-3">
+                <form className="well form-horizontal" action=" " method="post" id="contact_form">
                     <fieldset>
                         <legend>Add New Course</legend>
 
-                        <div class="form-group row">
-                            <label class="col-md-2 control-label">Title</label>
-                            <div class="col-md-4 inputGroupContainer">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <div className="form-group row">
+                            <label className="col-md-2 control-label">Title</label>
+                            <div className="col-md-4 inputGroupContainer">
+                                <div className="input-group">
+                                    <span className="input-group-addon"><i className="glyphicon glyphicon-user"></i></span>
                                     <Input
                                         id="title"
                                         validations={[
@@ -146,11 +146,11 @@ export default function Courses() {
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <label class="col-md-2 control-label" >ShortName</label>
-                            <div class="col-md-4 inputGroupContainer">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <div className="form-group row">
+                            <label className="col-md-2 control-label" >ShortName</label>
+                            <div className="col-md-4 inputGroupContainer">
+                                <div className="input-group">
+                                    <span className="input-group-addon"><i className="glyphicon glyphicon-user"></i></span>
                                     <Input
                                         id="shortname"
                                         validations={[
@@ -164,11 +164,11 @@ export default function Courses() {
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <label class="col-md-2 control-label">Date</label>
-                            <div class="col-md-4 inputGroupContainer">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+                        <div className="form-group row">
+                            <label className="col-md-2 control-label">Date</label>
+                            <div className="col-md-4 inputGroupContainer">
+                                <div className="input-group">
+                                    <span className="input-group-addon"><i className="glyphicon glyphicon-home"></i></span>
                                     <Input
                                         id="date"
                                         validations={[
@@ -182,11 +182,11 @@ export default function Courses() {
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <label class="col-md-2 control-label">Time</label>
-                            <div class="col-md-4 inputGroupContainer">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+                        <div className="form-group row">
+                            <label className="col-md-2 control-label">Time</label>
+                            <div className="col-md-4 inputGroupContainer">
+                                <div className="input-group">
+                                    <span className="input-group-addon"><i className="glyphicon glyphicon-home"></i></span>
                                     <Input
                                         id="time"
                                         validations={[
@@ -199,11 +199,11 @@ export default function Courses() {
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group row">
-                            <label class="col-md-2 control-label">Score</label>
-                            <div class="col-md-4 inputGroupContainer">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+                        <div className="form-group row">
+                            <label className="col-md-2 control-label">Score</label>
+                            <div className="col-md-4 inputGroupContainer">
+                                <div className="input-group">
+                                    <span className="input-group-addon"><i className="glyphicon glyphicon-home"></i></span>
                                     <Input
                                         id="score"
                                         validations={[
@@ -216,11 +216,11 @@ export default function Courses() {
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group row">
-                            <label class="col-md-2 control-label">Student</label>
-                            <div class="col-md-4 inputGroupContainer">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+                        <div className="form-group row">
+                            <label className="col-md-2 control-label">Student</label>
+                            <div className="col-md-4 inputGroupContainer">
+                                <div className="input-group">
+                                    <span className="input-group-addon"><i className="glyphicon glyphicon-home"></i></span>
                                     <Input
                                         id="student"
                                         validations={[
@@ -234,11 +234,11 @@ export default function Courses() {
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <label class="col-md-2 control-label">Image</label>
-                            <div class="col-md-4 inputGroupContainer">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+                        <div className="form-group row">
+                            <label className="col-md-2 control-label">Image</label>
+                            <div className="col-md-4 inputGroupContainer">
+                                <div className="input-group">
+                                    <span className="input-group-addon"><i className="glyphicon glyphicon-home"></i></span>
                                     <Input
                                         id="image"
                                         validations={[
@@ -252,11 +252,11 @@ export default function Courses() {
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <label class="col-md-2 control-label">Price</label>
-                            <div class="col-md-4 inputGroupContainer">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+                        <div className="form-group row">
+                            <label className="col-md-2 control-label">Price</label>
+                            <div className="col-md-4 inputGroupContainer">
+                                <div className="input-group">
+                                    <span className="input-group-addon"><i className="glyphicon glyphicon-home"></i></span>
                                     <Input
                                         id="price"
                                         validations={[
@@ -270,13 +270,13 @@ export default function Courses() {
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <label class="col-md-2 control-label">Category</label>
-                            <div class="col-md-4 selectContainer">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                        <div className="form-group row">
+                            <label className="col-md-2 control-label">Category</label>
+                            <div className="col-md-4 selectContainer">
+                                <div className="input-group">
+                                    <span className="input-group-addon"><i className="glyphicon glyphicon-list"></i></span>
                                     <select onClick={event => setCategory(event.target.value)}
-                                        name="category" class="form-control selectpicker" >
+                                        name="category" className="form-control selectpicker" >
                                         <option value="-1" >Please select your state</option>
                                         <option value="Web">Web</option>
                                         <option value="Frontend">Frontend</option>
@@ -293,14 +293,14 @@ export default function Courses() {
 
 
 
-                        <div class="form-group row">
-                            <label class="col-md-2 control-label">Description</label>
-                            <div class="col-md-4 inputGroupContainer">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+                        <div className="form-group row">
+                            <label className="col-md-2 control-label">Description</label>
+                            <div className="col-md-4 inputGroupContainer">
+                                <div className="input-group">
+                                    <span className="input-group-addon"><i className="glyphicon glyphicon-pencil"></i></span>
                                     <textarea
                                         onChange={(event) => setDescription(event.target.value)}
-                                        class="form-control" name="comment" placeholder="Description"></textarea>
+                                        className="form-control" name="comment" placeholder="Description"></textarea>
                                 </div>
                             </div>
                         </div>

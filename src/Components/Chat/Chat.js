@@ -4,6 +4,8 @@ import "./Chat.css"
 import { MdSend } from 'react-icons/md';
 import api from "./../../Pages/Api"
 import { useEffect } from 'react';
+import Image1 from "./../../img/chat.png"
+import Image2 from "./../../img/user4.jpg"
 
 export default function Chat() {
 
@@ -46,11 +48,11 @@ export default function Chat() {
         <>
             <div onClick={() => setShow(true)}
                 className='chat-div-container'>
-                <img src='/img/chat.png' className='w-100 m-0' style={{ borderRadius: "7px" }} />
+                <img src={Image1} className='w-100 m-0' style={{ borderRadius: "7px" }} />
             </div>
             <div className={`chat-main-box ${show ? "show" : ""}`} >
                 <div className='row justify-content-around align-items-center p-2'>
-                    <img src='/img/user4.jpg' className='chat-image-top' />
+                    <img src={Image2} className='chat-image-top' />
                     <h6>Online Chat</h6>
                     <button className='chat-btn-top'
                         onClick={() => setShow(false)}

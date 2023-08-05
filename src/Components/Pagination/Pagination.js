@@ -51,45 +51,45 @@ export default function Pagination({ courses, onPage }) {
         }
     }
 
-    console.log(filteredCourses);
+    // console.log(filteredCourses);
 
     return (
 
-        <div class="container-fluid ">
-            <div class="container py-5">
-                <div class="text-center mb-5">
+        <div className="container-fluid ">
+            <div className="container py-5">
+                <div className="text-center mb-5">
                     <SectionHeader title="Courses" subTitle="Our Courses" />
                 </div>
                 <FilterSection handler={displayHandler} display={display} filterCourses={filterCourses} />
-                <div class="row">
+                <div className="row">
                     {coursePage.map(course => (
                         <CourseBox key={course[0]} {...course[1]} display={display} />
                     ))}
                 </div>
 
-                <div class="col-12">
+                <div className="col-12">
                     <nav aria-label="Page navigation">
-                        <ul class="pagination pagination-lg justify-content-center mb-0">
-                            <li class="page-item disabled">
-                                <a class="page-link" href="#" aria-label="Previous">
+                        <ul className="pagination pagination-lg justify-content-center mb-0">
+                            <li className={`page-item ${page == 1 ? "disabled" : ""} `}>
+                                <Link className="page-link" to={`/courses/${Number(page) - 1}`} aria-label="Previous">
                                     <span aria-hidden="true">&laquo;</span>
-                                    <span class="sr-only">Previous</span>
-                                </a>
+                                    <span className="sr-only">Previous</span>
+                                </Link>
                             </li>
 
                             {Array(pages).fill(0).map((num, index) => (
                                 <Link to={`/courses/${index + 1}`}>
-                                    <li class={page == (index + 1) ? "page-item active" : "page-item"}><a class="page-link" href="#">
+                                    <li className={page == (index + 1) ? "page-item active" : "page-item"}><a className="page-link" href="#">
                                         {index + 1}
                                     </a></li>
                                 </Link>
                             ))}
 
-                            <li class="page-item">
-                                <a class="page-link" href="#" aria-label="Next">
+                            <li className={`page-item ${page == pages ? "disabled" : ""} `}>
+                                <Link className="page-link" to={`/courses/${Number(page) + 1}`} aria-label="Next">
                                     <span aria-hidden="true">&raquo;</span>
-                                    <span class="sr-only">Next</span>
-                                </a>
+                                    <span className="sr-only">Next</span>
+                                </Link>
                             </li>
                         </ul>
                     </nav>

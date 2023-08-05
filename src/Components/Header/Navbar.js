@@ -28,7 +28,7 @@ export default function Navbar() {
                         {showSubjectMenu ? (<i className="fa fa-angle-up text-primary"></i>) : (<i className="fa fa-angle-down text-primary"></i>)}
 
                     </a>
-                    <nav class={`${showSubjectMenu && "show"} collapse position-absolute navbar navbar-vertical navbar-light align-items-start p-0 border border-top-0 border-bottom-0 bg-light`} id="navbar-vertical" style={{ width: "calc(100% - 30px)", zIndex: 9 }}>
+                    <nav className={`${showSubjectMenu && "show"} collapse position-absolute navbar navbar-vertical navbar-light align-items-start p-0 border border-top-0 border-bottom-0 bg-light`} id="navbar-vertical" style={{ width: "calc(100% - 30px)", zIndex: 9 }}>
                         <div className="navbar-nav w-100">
                             <div className="nav-item dropdown">
                                 <Link
@@ -38,7 +38,7 @@ export default function Navbar() {
                                     }}
                                     to="/category/Frontend" className="nav-link " data-toggle="dropdown">Frontend {showWebMenu ? (<i className="fa fa-angle-up float-right mt-1"></i>) : (<i className="fa fa-angle-down float-right mt-1"></i>)}
                                 </Link>
-                                <div class={`${showWebMenu && "show"} dropdown-menu position-absolute bg-secondary border-0 rounded-0 w-100 m-0`}>
+                                <div className={`${showWebMenu && "show"} dropdown-menu position-absolute bg-secondary border-0 rounded-0 w-100 m-0`}>
                                     <Link to="/course/html" className="dropdown-item">HTML</Link>
                                     <Link to="/course/css" className="dropdown-item">CSS</Link>
                                     <Link to="/course/jQuery" className="dropdown-item">jQuery</Link>
@@ -61,9 +61,11 @@ export default function Navbar() {
                         <button type="button" className="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse"
                             onClick={() => setShowMenu(prev => !prev)}
                         >
-                            <span className="navbar-toggler-icon"></span>
+                            <span className="navbar-toggler-icon" style={{color:"#888" , border:"none"}}>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" ><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"></path></svg>
+                            </span>
                         </button>
-                        <div class={`${showMenu && "show"} collapse navbar-collapse justify-content-between`} id="navbarCollapse">
+                        <div className={`${showMenu && "show"} collapse navbar-collapse justify-content-between`} id="navbarCollapse">
                             <div className="navbar-nav py-0">
                                 <NavLink to="/" className="nav-item nav-link ">Home</NavLink>
                                 <NavLink to="/about" className="nav-item nav-link ">About</NavLink>
@@ -75,7 +77,7 @@ export default function Navbar() {
                                         onMouseEnter={() => setShowBlogMenu(prev => !prev)}
 
                                         to="/blogs" className="nav-link dropdown-toggle " data-toggle="dropdown">Blog</Link>
-                                    <div class={`${showBlogMenu && "show"} dropdown-menu rounded-0 m-0`}>
+                                    <div className={`${showBlogMenu && "show"} dropdown-menu rounded-0 m-0`}>
                                         <a href="blogs" className="dropdown-item">Blog List</a>
                                         <a href="single.html" className="dropdown-item">Blog Detail</a>
                                     </div>

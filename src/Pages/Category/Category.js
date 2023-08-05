@@ -9,6 +9,8 @@ import api from '../Api'
 import { useParams } from "react-router-dom"
 import CourseBox from "../../Components/CourseBox/CourseBox"
 import SectionHeader from "../../Components/SectionHeader/SectionHeader"
+import { useFetch } from "../../Hooks/useFetch"
+import ErrorAlert from "../../Components/ErrorAlert/ErrorAlert"
 
 export default function Category() {
 
@@ -16,20 +18,15 @@ export default function Category() {
 
     const { categoryId } = useParams()
 
-    const getAllCourses = () => {
-        fetch(`${api}courses.json`)
-            .then(res => res.json())
-            .then(data => {
-                let categoryCourses = (Object.entries(data)).filter(course => course[1].category === categoryId)
-                setCourses(categoryCourses)
-            })
-    }
+    const [data, loading, error] = useFetch("courses.json")
+
 
     useEffect(() => {
-        getAllCourses()
-    }, [categoryId])
-
-    console.log(courses);
+        if (!loading) {
+            let categoryCourses = (data).filter(course => course[1].category === categoryId)
+            setCourses(categoryCourses)
+        }
+    }, [categoryId, data])
 
 
     return (
@@ -38,16 +35,21 @@ export default function Category() {
 
             <Breadcrump title="Home" titleHref="/" subTitle={categoryId} />
 
-            <div class="container-fluid py-5">
-                <div class="container py-5">
-                    <div class="text-center mb-5">
+            <div className="container-fluid py-5">
+                <div className="container py-5">
+                    <div className="text-center mb-5">
                         <SectionHeader title={categoryId} subTitle="Our Courses" />
                     </div>
-                    <div class="row">
-                    {courses.map(course => (
-                        <CourseBox key={course[0]} {...course[1]}/>
-                    ))}
-                    </div>
+                    {error ? (
+                        <ErrorAlert error={error} />
+                    ) : (
+                        <div className="row">
+                            {courses.map(course => (
+                                <CourseBox key={course[0]} {...course[1]} />
+                            ))}
+                        </div>
+                    )}
+
                 </div>
             </div>
 

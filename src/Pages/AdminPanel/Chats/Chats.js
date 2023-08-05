@@ -4,6 +4,8 @@ import { useState } from 'react'
 import { MdSend } from 'react-icons/md';
 import api from "./../../Api"
 import { useEffect } from 'react';
+import Img1 from "./../../../img/chat.png"
+import Img2 from "./../../../img/user2.png"
 
 export default function Chat() {
 
@@ -47,11 +49,11 @@ export default function Chat() {
         <>
             <div onClick={() => setShow(true)}
                 className='chat-div-container'>
-                <img src='/img/chat.png' className='w-100 m-0' style={{ borderRadius: "7px" }} />
+                <img src={Img1} className='w-100 m-0' style={{ borderRadius: "7px" }} />
             </div>
             <div className={`chat-main-box ${show ? "show" : ""}`} >
                 <div className='row justify-content-around align-items-center p-2'>
-                    <img src='/img/user2.png' className='chat-image-top' />
+                    <img src={Img2} className='chat-image-top' />
                     <h6>Online Chat</h6>
                     <button className='chat-btn-top'
                         onClick={() => setShow(false)}

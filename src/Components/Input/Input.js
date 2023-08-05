@@ -36,7 +36,7 @@ export default function Input({ type, placeholder, validations, onRender, id, cl
     }, [inputValue])
 
     return (
-        <div className='row'>
+        <div className='d-flex w-100 bg-white'>
             {element==="textArea" ? (
                 <textarea
                 className={`${className} col-md-11`}
@@ -46,6 +46,7 @@ export default function Input({ type, placeholder, validations, onRender, id, cl
             ) : (
             <input
                 className={`${className} col-md-11`}
+                style={{outline:"none" , border:"none !important"}}
                 value={inputValue.value}
                 onChange={event => inputHandler(event.target.value)}
                 type={type} placeholder={placeholder} />)}

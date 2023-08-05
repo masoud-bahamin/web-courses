@@ -4,38 +4,37 @@ import Footer from '../../Components/Footer/Footer'
 import Header from '../../Components/Header/Header'
 import api from '../Api'
 import Breadcrump from "./../../Components/Breadcrump/Breadcrump"
+import { useFetch } from '../../Hooks/useFetch'
+import Loader from '../../Components/Loader/Loader'
+import ErrorAlert from '../../Components/ErrorAlert/ErrorAlert'
 
 export default function Blogs() {
 
     const [articles, setArticles] = useState([])
 
+    const [data, loading, error] = useFetch("articles.json")
 
-    const getAllArticles = () => {
-        fetch(`${api}articles.json`)
-            .then(res => res.json())
-            .then(data => setArticles(Object.entries(data)))
-    }
+    if (loading) return <Loader />
 
-    useEffect(() => {
-        getAllArticles()
-    }, [])
+    return (
+        <>
+            <Header />
+            <Breadcrump title="HOME" subTitle="Blogs" titleHref="/" />
 
-  return (
-    <>
-        <Header />
-        <Breadcrump title="HOME" subTitle="Blogs" titleHref="/" />
+            <div className='container py-5'>
+                {error ? <ErrorAlert error={error} /> : (
+                    <div className='row'>
+                        {data.map(article => (
+                            <ArticleBox key={article[0]} {...article[1]} />
+                        ))}
+                    </div>
+                )}
 
-        <div className='container py-5'>
-            <div className='row'>
-                {articles.map(article => (
-            <ArticleBox {...article[1]} />
-        ))}
             </div>
-        </div>
 
-        
 
-        <Footer />
-    </>
-  )
+
+            <Footer />
+        </>
+    )
 }

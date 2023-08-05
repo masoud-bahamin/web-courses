@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useId } from 'react'
 import Header from '../../Components/Header/Header'
 import swal from 'sweetalert'
 import Input from '../../Components/Input/Input'
@@ -8,49 +8,36 @@ import api from '../Api'
 import { Link, Navigate, useNavigate } from 'react-router-dom'
 import Footer from '../../Components/Footer/Footer'
 import AuthContext from '../../Context/authContext'
+import { ErrorMessage, Field, Form, Formik } from 'formik'
+import { registerSchema } from '../../validation/yup.Validation'
+import { v4 as uuidv4 } from 'uuid';
 
 export default function Register() {
 
-    const [formState, formHandler] = useForm({
-        name: {
-            value: "",
-            isValid: false
-        },
-        username: {
-            value: "",
-            isValid: false
-        },
-        email: {
-            value: "",
-            isValid: false
-        },
-        password: {
-            value: "",
-            isValid: false
-        },
-    }, false)
+
 
     let navigate = useNavigate()
 
     const authContext = useContext(AuthContext)
+    
+    const userId = uuidv4()
+
+    const registerUser = ({name , username , email , password}) => {
 
 
-    const registerUser = (event) => {
-        event.preventDefault()
-
-        let id = `${formState.inputs.name.value}${Math.floor(Math.random() * 999999)}`
+        console.log(userId);
 
         let date = new Date()
         let newUser = {
-            id: id,
-            name: formState.inputs.name.value,
-            username: formState.inputs.username.value,
-            email: formState.inputs.email.value,
-            password: formState.inputs.password.value,
+            id: userId,
+            name,
+            username,
+            email,
+            password,
             image: `user.jpg`,
             date,
             role: `USER`,
-            courses:[]
+            courses: []
         }
 
         fetch(`${api}users.json`, {
@@ -61,7 +48,7 @@ export default function Register() {
             body: JSON.stringify(newUser)
         }).then(res => {
             if (res.ok) {
-                localStorage.setItem("token", id)
+                localStorage.setItem("token", userId)
                 authContext.setIsLogin(true)
                 swal("Your registration was successful", {
                     icon: "success",
@@ -73,84 +60,80 @@ export default function Register() {
     return (
         <>
             <Header />
-            <div class="container-fluid bg-registration py-5" style={{ margin: "10px 0" }}>
-                <div class="container py-5">
-                    <div class="row align-items-center">
-                        <div class="col-lg-7 mb-5 mb-lg-0">
-                            <div class="mb-4">
-                                <h5 class="text-primary text-uppercase mb-3" style={{ letterSpacing: 5 }}>Need Any Courses</h5>
-                                <h1 class="text-white">30% Off For New Students</h1>
+            <div className="container-fluid bg-registration py-5" style={{ margin: "10px 0" }}>
+                <div className="container py-5">
+                    <div className="row align-items-center">
+                        <div className="col-lg-7 mb-5 mb-lg-0">
+                            <div className="mb-4">
+                                <h5 className="text-primary text-uppercase mb-3" style={{ letterSpacing: 5 }}>Need Any Courses</h5>
+                                <h1 className="text-white">30% Off For New Students</h1>
                             </div>
-                            <p class="text-white">Invidunt lorem justo sanctus clita. Erat lorem labore ea, justo dolor lorem ipsum ut sed eos,
+                            <p className="text-white">Invidunt lorem justo sanctus clita. Erat lorem labore ea, justo dolor lorem ipsum ut sed eos,
                                 ipsum et dolor kasd sit ea justo. Erat justo sed sed diam. Ea et erat ut sed diam sea ipsum est
                                 dolor</p>
-                            <ul class="list-inline text-white m-0">
-                                <li class="py-2"><i class="fa fa-check text-primary mr-3"></i>Labore eos amet dolor amet diam</li>
-                                <li class="py-2"><i class="fa fa-check text-primary mr-3"></i>Etsea et sit dolor amet ipsum</li>
-                                <li class="py-2"><i class="fa fa-check text-primary mr-3"></i>Diam dolor diam elitripsum vero.</li>
+                            <ul className="list-inline text-white m-0">
+                                <li className="py-2"><i className="fa fa-check text-primary mr-3"></i>Labore eos amet dolor amet diam</li>
+                                <li className="py-2"><i className="fa fa-check text-primary mr-3"></i>Etsea et sit dolor amet ipsum</li>
+                                <li className="py-2"><i className="fa fa-check text-primary mr-3"></i>Diam dolor diam elitripsum vero.</li>
                             </ul>
                         </div>
-                        <div class="col-lg-5">
-                            <div class="card border-0">
-                                <div class="card-header bg-light text-center p-4">
-                                    <h1 class="m-0">Sign Up Now</h1>
+                        <div className="col-lg-5">
+                            <div className="card border-0">
+                                <div className="card-header bg-light text-center p-4">
+                                    <h1 className="m-0">Sign Up Now</h1>
                                 </div>
-                                <div class="card-body rounded-bottom bg-primary p-5">
-                                    <form>
-                                        <div class="form-group">
-                                            <Input
-                                                onRender={formHandler}
-                                                id="name"
-                                                className={"form-control border-0 p-4"}
-                                                validations={[
-                                                    minValid(4),
-                                                    maxValid(20)
-                                                ]}
-                                                type="text" placeholder="Your name" required="required" />
-                                        </div>
-                                        <div class="form-group">
-                                            <Input
-                                                onRender={formHandler}
-                                                id="username"
-                                                className={"form-control border-0 p-4"}
-                                                validations={[
-                                                    minValid(4),
-                                                    maxValid(20)
-                                                ]}
-                                                type="text" placeholder="Your username" required="required" />
-                                        </div>
-                                        <div class="form-group">
-                                            <Input
-                                                onRender={formHandler}
-                                                id="email"
-                                                className={"form-control border-0 p-4"}
-                                                validations={[
-                                                    minValid(4),
-                                                    maxValid(20),
-                                                    emailValid()
-                                                ]}
-                                                type="email" placeholder="Your email" required="required" />
-                                        </div>
-                                        <div class="form-group">
-                                            <Input
-                                                onRender={formHandler}
-                                                id="password"
-                                                className={"form-control border-0 p-4"}
-                                                validations={[
-                                                    minValid(4),
-                                                    maxValid(25),
-                                                ]}
-                                                type="password" placeholder="Your password" required="required" />
-                                        </div>
-                                        <div class="form-group">
-                                            <Link to="/login" style={{ color: "white" }}>Login</Link>
-                                        </div>
-                                        <div>
-                                            <button
-                                                onClick={(event) => registerUser(event)}
-                                                class="btn btn-dark btn-block border-0 py-3" type="submit">Sign Up Now</button>
-                                        </div>
-                                    </form>
+                                <div className="card-body rounded-bottom bg-primary p-5">
+                                    <Formik
+                                    initialValues={{name:"" , username:"",email:"" , password:""}}
+                                    onSubmit={(values) => {
+                                        console.log(values);
+                                        registerUser(values)
+                                    }}
+                                    validationSchema={registerSchema}
+                                    >
+                                        <Form>
+                                            <div className="form-group">
+                                                <Field
+                                                    name="name"
+                                                    className={"border-0 p-3"}
+                                                    type="text"
+                                                    placeholder="name" />
+                                                    <ErrorMessage name="name" />
+                                            </div>
+                                            <div className="form-group">
+                                                <Field
+                                                    name="username"
+                                                    className={"border-0 p-3"}
+                                                    type="text"
+                                                    placeholder="username" />
+                                                    <ErrorMessage name="username" />
+                                            </div>
+                                            <div className="form-group">
+                                                <Field
+                                                    name="email"
+                                                    className={"border-0 p-3"}
+                                                    type="email"
+                                                    placeholder="email" />
+                                                    <ErrorMessage name="email" />
+                                            </div>
+                                            <div className="form-group">
+                                                <Field
+                                                    name="password"
+                                                    className={"border-0 p-3"}
+                                                    type="password"
+                                                    placeholder="password" />
+                                                    <ErrorMessage name="password" />
+                                            </div>
+                                            <div className="form-group">
+                                                <Link to="/login" style={{ color: "white" }}>Login</Link>
+                                            </div>
+                                            <div>
+                                                <button
+                                                    onClick={(event) => registerUser(event)}
+                                                    className="btn btn-dark btn-block border-0 py-3" type="submit">Sign Up Now</button>
+                                            </div>
+                                        </Form>
+                                    </Formik>
                                 </div>
                             </div>
                         </div>

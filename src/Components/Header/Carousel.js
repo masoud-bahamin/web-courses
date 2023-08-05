@@ -28,9 +28,9 @@ export default function Landing() {
 
 
   return (
-    <div class="container-fluid p-0 ">
-      <div id="header-carousel" class="carousel slide carousel-fade" data-ride="carousel">
-        <ol class="carousel-indicators">
+    <div className="container-fluid p-0 ">
+      <div id="header-carousel" className="carousel slide carousel-fade" data-ride="carousel">
+        <ol className="carousel-indicators">
           <li
             onClick={() => setShowSlid(0)}
             data-target="#header-carousel" data-slide-to="0"
@@ -47,14 +47,14 @@ export default function Landing() {
             className={showSlid == 2 ? "active" : ""}
           ></li>
         </ol>
-        <div class="carousel-inner">
-          <div class={showSlid === 0 ? "carousel-item active" : "carousel-item"}
+        <div className="carousel-inner">
+          <div className={showSlid === 0 ? "carousel-item active" : "carousel-item"}
             style={{ minHeight: 300 }}>
-            <img class="position-relative w-100" src={Image1} style={{ minHeight: 300, objectFit: "cover" ,maxHeight: "95vh" }} />
-            <div class="carousel-caption d-flex align-items-center justify-content-center">
-              <div class="p-5" style={{ width: "100%", maxWidth: 900 }}>
-                <h5 class="text-white text-uppercase mb-md-3"> Best Online Courses</h5>
-                <h1 class="display-3 text-white mb-md-4">
+            <img className="position-relative w-100" src={Image1} style={{ minHeight: 300, objectFit: "cover" ,maxHeight: "95vh" }} />
+            <div className="carousel-caption d-flex align-items-center justify-content-center">
+              <div className="p-5" style={{ width: "100%", maxWidth: 900 }}>
+                <h5 className="text-white text-uppercase mb-md-3"> Best Online Courses</h5>
+                <h1 className="display-3 text-white mb-md-4">
 
                   <Typewriter
                     onInit={(typewriter) => {
@@ -64,17 +64,17 @@ export default function Landing() {
                   />
 
                 </h1>
-                <a href="" class="btn btn-primary py-md-2 px-md-4 font-weight-semi-bold mt-2">Learn More</a>
+                <a href="" className="btn btn-primary py-md-2 px-md-4 font-weight-semi-bold mt-2">Learn More</a>
               </div>
             </div>
           </div>
-          <div class={showSlid === 1 ? "carousel-item active" : "carousel-item"}
+          <div className={showSlid === 1 ? "carousel-item active" : "carousel-item"}
             style={{ minHeight: 300 }}>
-            <img class="position-relative w-100" src={Image2} style={{ minHeight: 300, objectFit: "cover" ,maxHeight: "95vh"}} />
-            <div class="carousel-caption d-flex align-items-center justify-content-center">
-              <div class="p-5" style={{ width: "100%", maxWidth: 900 }}>
-                <h5 class="text-white text-uppercase mb-md-3">Best Online Courses</h5>
-                <h1 class="display-3 text-white mb-md-4">
+            <img className="position-relative w-100" src={Image2} style={{ minHeight: 300, objectFit: "cover" ,maxHeight: "95vh"}} />
+            <div className="carousel-caption d-flex align-items-center justify-content-center">
+              <div className="p-5" style={{ width: "100%", maxWidth: 900 }}>
+                <h5 className="text-white text-uppercase mb-md-3">Best Online Courses</h5>
+                <h1 className="display-3 text-white mb-md-4">
                   
                 <Typewriter
                     onInit={(typewriter) => {       
@@ -86,17 +86,17 @@ export default function Landing() {
                   />
 
                   </h1>
-                <a href="" class="btn btn-primary py-md-2 px-md-4 font-weight-semi-bold mt-2">Learn More</a>
+                <a href="" className="btn btn-primary py-md-2 px-md-4 font-weight-semi-bold mt-2">Learn More</a>
               </div>
             </div>
           </div>
-          <div class={showSlid === 2 ? "carousel-item active" : "carousel-item"}
+          <div className={showSlid === 2 ? "carousel-item active" : "carousel-item"}
             style={{ minHeight: 300 }}>
-            <img class="position-relative w-100" src={Image1} style={{ minHeight: 300, objectFit: "cover" ,maxHeight: "95vh"}} />
-            <div class="carousel-caption d-flex align-items-center justify-content-center">
-              <div class="p-5" style={{ width: "100%", maxWidth: 900 }}>
-                <h5 class="text-white text-uppercase mb-md-3">Best Online Courses</h5>
-                <h1 class="display-3 text-white mb-md-4">
+            <img className="position-relative w-100" src={Image1} style={{ minHeight: 300, objectFit: "cover" ,maxHeight: "95vh"}} />
+            <div className="carousel-caption d-flex align-items-center justify-content-center">
+              <div className="p-5" style={{ width: "100%", maxWidth: 900 }}>
+                <h5 className="text-white text-uppercase mb-md-3">Best Online Courses</h5>
+                <h1 className="display-3 text-white mb-md-4">
                   
                 <Typewriter
                     onInit={(typewriter) => {
@@ -108,7 +108,7 @@ export default function Landing() {
                   />
                   
                   </h1>
-                <a href="" class="btn btn-primary py-md-2 px-md-4 font-weight-semi-bold mt-2">Learn More</a>
+                <a href="" className="btn btn-primary py-md-2 px-md-4 font-weight-semi-bold mt-2">Learn More</a>
               </div>
             </div>
           </div>
