@@ -29,7 +29,7 @@ import Dashboard from "./Pages/UserPanel/Dashboard/Dashboard"
 
 const  Routs = [
     {path:"/" , element:<Index />},
-    // {path:"/*" , element:<Index />},
+    {path:"/*" , element:<Index />},
     {path:"/login" , element:<Login />},
     {path:"/register" , element:<Register />},
     {path:"/about" , element:<About />},
